@@ -1,6 +1,6 @@
 // Jesse James
-// 3-2-2013
-// VFW Project 4 1302
+// 3-7-2013
+// MiU Project 1 1303
 //Wait for DOM to load
 window.addEventListener("DOMContentLoaded",function(){
 	//Global Variables
