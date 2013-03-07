@@ -4,7 +4,7 @@
 //Wait for DOM to load
 window.addEventListener("DOMContentLoaded",function(){
 	//Global Variables
-	function $(x){
+	function ge(x){
 		var elements = document.getElementById(x);
 		return elements;
 	};
@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded",function(){
 	//Create Game Catergory List
 	function makeCatergoryList(){
 		var addGameForm = document.getElementsByTagName("form");
-			var gameCatergoryLi = $("gameCatergoryList");
+			var gameCatergoryLi = ge("gameCatergoryList");
 			var makeElement = document.createElement("select");
 			makeElement.setAttribute("id","gameCatergory");
 		for(var i=0; i<gameCatergoryTypes.length; i++){
@@ -26,28 +26,29 @@ window.addEventListener("DOMContentLoaded",function(){
 	}
 	makeCatergoryList();
 	//Input ID's
-	var gameCatergory = $("gameCatergory");
-	var gameName = $("gameName");
-	var gamePublisher = $("gamePublisher");
-	var gameRelease = $("gameRelease");
-	var gameRate = $("gameRate");
-	var gameConsole = $("gameReviewForm").console;
-	var comments = $("comments");
-	var clearData = $("clearData");
-	var displayData = $("displayData");
-	var submitButton = $("submitButton");
+	var gameCatergory = ge("gameCatergory");
+	var gameName = ge("gameName");
+	var gamePublisher = ge("gamePublisher");
+	var gameRelease = ge("gameRelease");
+	var gameRate = ge("gameRate");
+	var gameConsole = ge("gameReviewForm").console;
+	var comments = ge("comments");
+	var clearData = ge("clearData");
+	var displayData = ge("displayData");
+	var submitButton = ge("submitButton");
 	var types = [gameCatergory, gameName, gamePublisher, gameRelease, gameRate, gameConsole, comments];
 	var types2 = ["Game Catergory: ", "Game Name: ", "Game Publisher: ", "Game Release: ", "Game Rate: ", "Game Console: ", "Comments: "];
 	//Toggle
 	function toggleDisplay(n) {
 		switch (n) {
 			case "on":
-				var back = document.createElement("a");
-				back.setAttribute("href", "additem.html");
+				var back = document.createElement("input");
+				back.setAttribute("type", "button");
+				back.setAttribute("onclick", "window.location.href='additem.html'");
 				back.setAttribute("id", "back");
+				back.setAttribute("value", "Back");
 				back.setAttribute("class", "button");
 				document.body.appendChild(back);
-				back.innerHTML = "Back";
 				var clear = document.createElement("input");
 				clear.setAttribute("type", "button");
 				clear.setAttribute("id", "clearData2");
@@ -56,27 +57,27 @@ window.addEventListener("DOMContentLoaded",function(){
 				document.body.appendChild(clear);
 				var displayClear = document.getElementById("clearData2");
 				displayClear.addEventListener("click", deleteLocalStorage);
-				if($("editButton") === null || $("editButton") === undefined){
+				if(ge("editButton") === null || ge("editButton") === undefined){
 				} else {
-					var thisEditButton = $("editButton");
+					var thisEditButton = ge("editButton");
 					document.body.removeChild(thisEditButton);
 				}
-				$("addItemField").style.display = "none";
-				$("clearData").style.display = "none";
-				$("displayData").style.display = "none";
-				$("submitButton").hidden = "hidden";
-				$("addGameReview").innerHTML = "Game List";
+				ge("addItemField").style.display = "none";
+				ge("clearData").style.display = "none";
+				ge("displayData").style.display = "none";
+				ge("submitButton").hidden = "hidden";
+				ge("addGameReview").innerHTML = "Game List";
 				break;
 			case "off":
-				var backButton = $("back");
-				var clearButton2 = $("clearData2");
+				var backButton = ge("back");
+				var clearButton2 = ge("clearData2");
 				document.body.removeChild(backButton);
 				document.body.removeChild(clearButton2);
-				$("addItemField").removeAttribute("style");
-				$("displayData").removeAttribute("style");
-				$("submitButton").removeAttribute("hidden");
-				$("addGameReview").innerHTML = "Add A Game Review";
-				$("clearData").style.display = "";
+				ge("addItemField").removeAttribute("style");
+				ge("displayData").removeAttribute("style");
+				ge("submitButton").removeAttribute("hidden");
+				ge("addGameReview").innerHTML = "Add A Game Review";
+				ge("clearData").style.display = "";
 				for(i=0; i<document.getElementsByClassName("displayDataList").length; i++){
 					document.getElementsByClassName("displayDataList")[i].style.display = "none";
 				}
@@ -277,23 +278,25 @@ window.addEventListener("DOMContentLoaded",function(){
 	}
 	function listLinks(key, thisLi){
 		//Delete Display Data Button
-		var deleteLink = document.createElement("a");
+		var deleteLink = document.createElement("input");
 		deleteLink.key = key;
-		deleteLink.setAttribute("href","#");
+		deleteLink.setAttribute("type","button");
 		deleteLink.setAttribute("class","button");
 		deleteLink.setAttribute("title","deleteEntry");
+		deleteLink.setAttribute("name", "deleteEntry");
 		deleteLink.setAttribute("id","deleteEntry");
+		deleteLink.setAttribute("value", "Delete Review");
 		thisLi.appendChild(deleteLink);
-		deleteLink.innerHTML = "Delete Review";
 		//Edit Display Link
-		var editLink = document.createElement("a");
+		var editLink = document.createElement("input");
 		editLink.key = key;
-		editLink.setAttribute("href","#");
+		editLink.setAttribute("type","button");
 		editLink.setAttribute("class","button");
 		editLink.setAttribute("title","editEntry");
+		editLink.setAttribute("name", "editEntry");
 		editLink.setAttribute("id","editEntry");
+		editLink.setAttribute("value", "Edit Review");
 		thisLi.appendChild(editLink);
-		editLink.innerHTML = "Edit Review";
 ;
 	}
 	//Auto Fill Default Data
@@ -345,12 +348,27 @@ window.addEventListener("DOMContentLoaded",function(){
 		};
 		//This is for the event listeners on the new links because it wouldnt work the other way.
 		for(i=0; i<document.getElementsByClassName("displayDataList").length; i++){
-					var eachDelete =document.getElementsByClassName("deleteEntry")[i];
-					var eachEdit = document.getElementsByClassName("editEntry")[i];
+					var eachDelete =document.getElementsByName("deleteEntry")[i];
+					var eachEdit = document.getElementsByName("editEntry")[i];
 					eachDelete.addEventListener("click", deleteThis);
 					eachEdit.addEventListener("click", editThis);
-				}
+				};
 	};
+/*	//Search Box
+	$(function(){
+		var $search = $('search');
+		original_val = $search.val();
+		$search.focus(function(){
+			if($(this).val() === original_val){
+				$(this).val('');
+			}
+		})
+		.blur(function(){
+			if($(this).val() === ''){
+				$(this).val(original_val);
+			}
+		})
+	})*/
 	//Populate past data
 	populateForm();
 	getRate();

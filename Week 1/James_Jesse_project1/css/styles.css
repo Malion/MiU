@@ -26,12 +26,13 @@ h1 {
 	padding: 10px;
 	background-image: -webkit-linear-gradient(top right, #00A3EF 0%, #00618F 100%);
 }
-p {
-	border: dashed black 1px;
-	width: 300px;
-	border-radius: 15px;
-	padding: 10px;
-	background-image: -webkit-linear-gradient(top right, #00A3EF 0%, #00618F 100%);
+#addGameReviewField {
+	background-image: url(../img/VideoGameStack.png);
+}
+#addReviewButton {
+	position:absolute;
+	bottom: 0px;
+	right: 0px;
 }
 .button {
 	-moz-box-shadow:inset 0px -12px 8px -3px #bbdaf7;
