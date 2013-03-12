@@ -27,7 +27,14 @@
         <fieldset id="browseLabel" style="width:300px; height:273px; border:1px solid black;">
         <label for="browseLabel" style="position:relative; text-align:center; border-radius:15px; max-height:34px; background-image: -webkit-linear-gradient(top right, #00A3EF 0%, #00618F 100%); border:1px black solid; padding-bottom:0px; position:absolute; top:270px; width:324px; left:10px; top:264px; height:50px;">Browse Game Reviews</label>
         	<div>
-            	<input type="button" id="browseAction" class="button" value="Browse Action Game Reviews" style="position:absolute; width:324px; height:50px; top:300px; left:11px;" />
+            	<input type="button" id="browseCatergory" class="button" value="Browse Game Reviews by Catergory" data-inline="true" style="position:absolute; width:324px; height:50px; top:300px; left:11px;" />
+                <ul data-role="listview" data-theme="g" id="browseCatergoryUl">
+                	<li><a href="#">Action</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">First Person Shooter</a></li>
+                    <li><a href="#">Racing</a></li>
+                    <li><a href="#">Role Playing</a></li>
+                </ul>
             </div>
             <div>
             	<input type="button" id="browseAdventure" class="button" value="Browse Adventure Game Reviews" style="position:absolute; top:351px; width:324px; height:50px; left:11px;" />

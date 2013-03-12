@@ -354,6 +354,10 @@ window.addEventListener("DOMContentLoaded",function(){
 					eachEdit.addEventListener("click", editThis);
 				};
 	};
+	//Browse By Catergory Button Dropdown
+	$("browseCatergory").bind("vclick",function(){
+		$("ul").toggle();	
+	});
 /*	//Search Box
 	$(function(){
 		var $search = $('search');
