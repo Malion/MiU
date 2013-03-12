@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!-- Jesse James -->
+<!-- 3-7-2013 -->
+<!-- MiU Project 1 1303 -->
+
+<html>
+	<head>
+    	<meta charset="utf-8" />
+    	<meta name="description" content="Video game review welcome page" />
+    	<meta name="robots" content="noindex, nofollow" />
+    	<meta name="viewport" content="user-scalable=no, width=device-width" />
+    	<meta name="viewport" content="target-densitydpi=device-dpi" />
+    	<meta name="HandheldFriendly" content="True" />
+    	<meta name="MobileOpimized" content="320" />
+    	<title>Video Game Review's</title>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    </head>
+    <body>
+    	<h1>Video Game Reviews</h1>
+        <fieldset style="position: relative; height: 100px; width: 300px;" id="addGameReviewField">
+            <div style="position:absolute; bottom:0px; right:0px;">
+                <input type="button" onclick="window.location.href='additem.html'" value="Add Review" id="indexButton" class="button" id="addReviewButton" name="Add Review" />
+            </div>
+        </fieldset>
+        <input id="search" name="search" value="Search" type="text" placeholder="Search" style="width:230px" /><input type="button" value="Search" class="button" />
+        <fieldset id="browseLabel" style="width:300px; height:273px; border:1px solid black;">
+        <label for="browseLabel" style="position:relative; text-align:center; border-radius:15px; max-height:34px; background-image: -webkit-linear-gradient(top right, #00A3EF 0%, #00618F 100%); border:1px black solid; padding-bottom:0px; position:absolute; top:270px; width:324px; left:10px; top:264px; height:50px;">Browse Game Reviews</label>
+        	<div>
+            	<input type="button" id="browseAction" class="button" value="Browse Action Game Reviews" style="position:absolute; width:324px; height:50px; top:300px; left:11px;" />
+            </div>
+            <div>
+            	<input type="button" id="browseAdventure" class="button" value="Browse Adventure Game Reviews" style="position:absolute; top:351px; width:324px; height:50px; left:11px;" />
+            </div>
+            <div>
+            	<input type="button" id="browseFPS" class="button" value="Browse First Person Shooter Game Reviews" style="position:absolute; top:402px; width:324px; height:50px; left: 11px;" />
+            </div>
+            <div>
+            	<input type="button" id="browseRacing" class="button" value="Browse Racing Game Reviews" style="position:absolute; top:453px; width:324px; height:50px; left: 11px;" />
+            </div>
+            <div>
+            	<input type="button" id="browseRPG" class="button" value="Browse Role Playing Game Reviews" style="position:absolute; top:504px; width:324px; height:50px; left: 11px;" />
+            </div>
+        </fieldset>
+    </body>
+    <script type="text/javascript" src="js/json.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</html>
