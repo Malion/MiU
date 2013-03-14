@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Jesse James
 // 3-7-2013
 // MiU Project 1 1303
+=======
+// Jesse James
+// 3-14-2013
+// MiU Project 2 1303
+>>>>>>> so confused
 //Wait for DOM to load
 window.addEventListener("DOMContentLoaded",function(){
 	//Global Variables
@@ -117,7 +123,10 @@ window.addEventListener("DOMContentLoaded",function(){
 	};
 	var getRate = function () {
 		var label = document.getElementById("ratingLabel");
+<<<<<<< HEAD
 		label.innerHTML = "Game Rating(0-10):";
+=======
+>>>>>>> so confused
 		localStorage.setItem("Game Rate: ", gameRate.value);
 	};
 	var getConsole = function () {
@@ -357,9 +366,15 @@ window.addEventListener("DOMContentLoaded",function(){
 				};
 	};
 	//Browse By Catergory Button Dropdown
+<<<<<<< HEAD
 	$("browseCatergory").bind("vclick",function(){
 		$("ul").toggle();	
 	});
+=======
+/*	$("browseCatergory").bind("vclick",function(){
+		$("ul").toggle();	
+	});*/
+>>>>>>> so confused
 /*	//Search Box
 	$(function(){
 		var $search = $('search');
@@ -390,6 +405,7 @@ window.addEventListener("DOMContentLoaded",function(){
 	clearData.addEventListener("click", deleteLocalStorage);
 	displayData.addEventListener("click", displayLocalStorage);
 	submitButton.addEventListener("click", saveGame);
+<<<<<<< HEAD
 =======
 // Jesse James
 // 3-7-2013
@@ -783,4 +799,6 @@ window.addEventListener("DOMContentLoaded",function(){
 	displayData.addEventListener("click", displayLocalStorage);
 	submitButton.addEventListener("click", saveGame);
 >>>>>>> Well I can't get github to sync on one computer anymore lets try this one...
+=======
+>>>>>>> so confused
 });

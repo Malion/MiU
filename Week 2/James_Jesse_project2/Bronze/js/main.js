@@ -1,6 +1,6 @@
 // Jesse James
-// 3-7-2013
-// MiU Project 1 1303
+// 3-14-2013
+// MiU Project 2 1303
 //Wait for DOM to load
 window.addEventListener("DOMContentLoaded",function(){
 	//Global Variables
@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded",function(){
 			var gameCatergoryLi = ge("gameCatergoryList");
 			var makeElement = document.createElement("select");
 			makeElement.setAttribute("id","gameCatergory");
+			makeElement.setAttribute("data-native-menu","false");
 		for(var i=0; i<gameCatergoryTypes.length; i++){
 			var createOption = document.createElement("option");
 			var optionType = gameCatergoryTypes[i];
@@ -115,7 +116,6 @@ window.addEventListener("DOMContentLoaded",function(){
 	};
 	var getRate = function () {
 		var label = document.getElementById("ratingLabel");
-		label.innerHTML = "Game Rating(0-10):";
 		localStorage.setItem("Game Rate: ", gameRate.value);
 	};
 	var getConsole = function () {
@@ -354,6 +354,10 @@ window.addEventListener("DOMContentLoaded",function(){
 					eachEdit.addEventListener("click", editThis);
 				};
 	};
+	//Browse By Catergory Button Dropdown
+/*	$("browseCatergory").bind("vclick",function(){
+		$("ul").toggle();	
+	});*/
 /*	//Search Box
 	$(function(){
 		var $search = $('search');

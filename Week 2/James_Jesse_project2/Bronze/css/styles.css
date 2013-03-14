@@ -19,13 +19,6 @@ textarea {
 	margin:10px;
 }
 /*index.html*/
-h1 {
-	border:dashed black 1px;
-	width:300px;
-	border-radius: 15px;
-	padding: 10px;
-	background-image: -webkit-linear-gradient(top right, #00A3EF 0%, #00618F 100%);
-}
 #addGameReviewField {
 	background-image: url(../img/VideoGameStack.png);
 }
