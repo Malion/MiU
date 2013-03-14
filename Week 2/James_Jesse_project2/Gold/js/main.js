@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded",function(){
 			var gameCatergoryLi = ge("gameCatergoryList");
 			var makeElement = document.createElement("select");
 			makeElement.setAttribute("id","gameCatergory");
+			makeElement.setAttribute("data-native-menu","false");
 		for(var i=0; i<gameCatergoryTypes.length; i++){
 			var createOption = document.createElement("option");
 			var optionType = gameCatergoryTypes[i];
