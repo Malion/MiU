@@ -8,24 +8,6 @@ window.addEventListener("DOMContentLoaded",function(){
 		var elements = document.getElementById(x);
 		return elements;
 	};
-	var gameCatergoryTypes = ["Catergory", "Action", "Adventure", "First Person Shooter", "Racing","Role-Playing"];
-	//Create Game Catergory List
-	function makeCatergoryList(){
-		var addGameForm = document.getElementsByTagName("form");
-			var gameCatergoryLi = ge("gameCatergoryList");
-			var makeElement = document.createElement("select");
-			makeElement.setAttribute("id","gameCatergory");
-			makeElement.setAttribute("data-native-menu","false");
-		for(var i=0; i<gameCatergoryTypes.length; i++){
-			var createOption = document.createElement("option");
-			var optionType = gameCatergoryTypes[i];
-			createOption.setAttribute("value", optionType);
-			createOption.innerHTML = optionType;
-			makeElement.appendChild(createOption);
-		}
-		gameCatergoryLi.appendChild(makeElement);
-	}
-	makeCatergoryList();
 	//Input ID's
 	var gameCatergory = ge("gameCatergory");
 	var gameName = ge("gameName");
@@ -382,7 +364,7 @@ window.addEventListener("DOMContentLoaded",function(){
 	gamePublisher.addEventListener("blur", getPublisher);
 	gameRelease.addEventListener("blur", getRelease);
 	gameRate.addEventListener("change", getRate);
-	submitButton.addEventListener("click", getConsole);
+	//submitButton.addEventListener("click", getConsole);
 	comments.addEventListener("blur", getComments);
 	//Button and Link Listners
 	clearData.addEventListener("click", deleteLocalStorage);

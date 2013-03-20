@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
         <!-- For use when I do not have internet do not enable! -->
         <!--<link rel="stylesheet" href="../../../../Offline jQuery Mobile/jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.css" />-->
+		<!-- Pagination css file do not uncomment this work is not yet completed -->
+		<!--<link rel="stylesheet" href="css/jquery.mobile.pagination.css" />-->
         <!--<link rel="stylesheet" href="css/styles.css" type="text/css" />-->
         <script src="js/libs/modernizr.custom.min.js"></script>
     </head>
@@ -378,41 +380,115 @@
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h3 id="addGameReview">Add A Game Review</h3>
 			</div>
-			<!-- Input Fields -->
-			<form action="#" method="post" id="gameReviewForm" class="gameReviewForm" />
-			  <fieldset id="addItemField">
-				<!--<legend>Game Review</legend>-->
-					<nav>
-						<!-- These links are handled by JavaScript -->
+			<div data-role="content">
+				<div class="ui-grid-c">
+					<div class="ui-block-a">
 						<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">
+					</div>
+					<div class="ui-block-b">
+						<p data-inline="true" style="color:#F00">*Required!</p>
+					</div>
+					<div class="ui-block-c">
 						<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">
-					</nav>
+					</div>
+				</div>
+				<!-- Input Fields -->
+				<form action="" method="post" id="gameReviewForm">
+					<div data-role="fieldcontain">
+						<label for="gameCatergory">Game Catergory: </label>
+						<select name="catergory" id="gameCatergory" data-native-menu="false" class="required">
+							<option data-placeholder="true">Catergory</option>
+							<option value="action">Action</option>
+							<option value="adventure">Adventure</option>
+							<option value="fps">First Person Shooter</option>
+							<option value="racing">Racing</option>
+							<option value="rpg">Role Playing</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain" id="gameNameDiv">
+						<label for="gameName">Game Name: </label>
+						<input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" class="required" />
+					</div>
+					<div data-role="fieldcontain" id="gamePublisherDiv">
+						<label for="gamePublisher">Game Publisher: </label>
+						<input type="text" id="gamePublisher" placeholder="Nintendo" class="required" />
+					</div>
+					<div data-role="fieldcontain" id="gameReleaseDiv">
+						<label for="gameRelease">Game Release: </label>
+						<input type="date" id="gameRelease" class="required" /> 
+					</div>
+					<div data-role="fieldcontain" id="gameRatingDiv">
+						<label for="gameRate">Game Rating (0-10):</label>
+						<input type="range" id="gameRate" value="0" min="0" max="10" />
+					</div>
+					<div data-role="fieldcontain" id="consoleListDiv">
+						<fieldset id="gameConsole" data-role="controlgroup" class="required">
+							<legend>Game Consoles:</legend>
+							<input type="checkbox" name="xbox360" id="xbox360">
+							<label for="xbox360">Xbox 360</label>
+							<input type="checkbox" name="ps3" id="ps3">
+							<label for="ps3">Playstation 3</label>
+							<input type="checkbox" name="wii" id="wii">
+							<label for="wii">Wii</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain" id="comm">
+						<label for="comments">Comments:</label>
+						<textarea id="comments" placeholder="This game was amazing A++!"></textarea>
+					</div>
+					<div data-role="fieldcontain" id="submitButtonDiv">
+						<input id="submit" type="submit" value="Add Review" name="submit" />
+					</div>
+				</form>
+			<!--<form action="" method="post" id="gameReviewForm">
+			  <fieldset id="addItemField">
+				<nav align="center">
+					<div class="ui-grid-c">
+						<div class="ui-block-a">
+							<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">
+						</div>
+						<div class="ui-block-b">
+							<p data-inline="true" style="color:#F00">*Required!</p>
+						</div>
+						<div class="ui-block-c">
+							<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">
+						</div>
+					</div>
+				</nav>
 				<div data-role="fieldcontain">
 				  <ul data-role="listview" data-theme="e" data-inset="true" id="addItemForm">
-				  	<li data-role="list-divider">Game Catergory</li>
+				  	<li data-role="list-divider">Game Catergory*</li>
 					  <li id="gameCatergoryList">
+						<select name="catergory" id="gameCatergory" data-native-menu="false" class="required">
+							<option data-placeholder="true">Catergory</option>
+							<option value="action">Action</option>
+							<option value="adventure">Adventure</option>
+							<option value="fps">First Person Shooter</option>
+							<option value="racing">Racing</option>
+							<option value="rpg">Role Playing</option>
+						</select>
 					  </li>
-					  <li data-role="list-divider">Game Name</li>
-					  <li>
-						  <input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" />
+					  <li data-role="list-divider">Game Name*</li>
+					  <li id="gameNameLi">
+						  <input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" class="required" />
 					  </li>
-					  <li data-role="list-divider">Game Publisher</li>
-					  <li>
-						  <input type="text" id="gamePublisher" placeholder="Nintendo" />
+					  <li data-role="list-divider">Game Publisher*</li>
+					  <li id="gamePublisherLi">
+						  <input type="text" id="gamePublisher" placeholder="Nintendo" class="required" />
 					  </li>
-					  <li data-role="list-divider">Game Release Date</li>
-					  <li>
-						  <input type="date" id="gameRelease" /> 
+					  <li data-role="list-divider">Game Release Date*</li>
+					  <li id="gameReleaseLi">
+						  <input type="date" id="gameRelease" class="required" /> 
 					  </li>
 					  <li data-role="list-divider">Game Rating(0-10)</li>
-					  <li id="rl">
+					  <li id="gameRatingLi">
 						  <div id="gameRating">
-							<input class="bar" type="range" id="gameRate" value="5" min="0" max="10" onMouseOver="rangevalue.value=value" />
+							<input type="range" id="gameRate" value="5" min="0" max="10" onMouseOver="rangevalue.value=value" />
 						  </div>
 					  </li>
-					  <li data-role="list-divider">Game Console</li>
-					  <li id="gameConsole">
-					  	<fieldset id="consoleList" data-role="controlgroup">
+					  <li data-role="list-divider">Game Console*</li>
+					  <li id="consoleList">
+					  	<fieldset id="gameConsole" data-role="controlgroup" class="required">
 							<input type="checkbox" name="xbox360" id="xbox360">
 							<label for="xbox360">Xbox 360</label>
 							<input type="checkbox" name="ps3" id="ps3">
@@ -426,13 +502,15 @@
 						  <textarea id="comments" placeholder="This game was amazing A++!"></textarea>
 					  </li>
 				  </ul>
-                  	  <div id="submitButtonDiv">
-                          <input id="submitButton" type="button" value="Add Review" name="submit" class="button" />
-                      </div>
-				  </div>
+				  <div id="submitButtonDiv">
+                  	<input id="submit" type="submit" value="Add Review" name="submit" />
+                  </div>
+				</div>
 				</fieldset>
+				</form>-->
 			  <!-- Submit Button -->
 			  <!--<input id="submitButton" type="button" value="Add Review" name="submit" class="button" />-->
+			  </div>
 			  <div data-role="footer" data-theme="e" data-position="fixed" data-id="nav">
 				<div data-role="navbar">
 					<ul>
@@ -458,10 +536,14 @@
         <!-- For use when I have internet at home -->
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/Sample-main.js"></script>
+		<!-- Pagination js file do not uncomment this work is not yet completed -->
+		<!--<script src="js/libs/jquery.mobile.pagination.js"></script>-->
         <!-- For use when I do not have internet at work do not enable! -->
         <!--<script src="../../../../Offline jQuery Mobile/jquery.mobile-1.3.0/jQuery.js"></script>
         <script src="../../../../Offline jQuery Mobile/jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"></script>-->
         <script type="text/javascript" src="js/json.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <!--<script type="text/javascript" src="js/main.js"></script>-->
     </body>
 </html>
