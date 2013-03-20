@@ -1,24 +1,31 @@
 $('#home').on('pageinit', function(){
 	//code needed for home page goes here
 });	
-var parseData = function(data){
-	console.log(data)
-};	
+
 $('#addItem').on('pageinit', function(){
 		var parseData = function(data){
 			console.log(data)
 		};	
 		var myForm = $('#gameReviewForm');
-		    myForm.validate({
-				invalidHandler: function(myForm, validator){
-					console.log("no")
-				},
-				submitHandler: function(){
-					console.log("yes")
-					var data = myForm.serialize()
-					parseData(data);
+		var errorLink = $('#addItemErrorsLink');
+		myForm.validate({
+			invalidHandler: function(form, validator){
+				errorLink.click();
+				for(var key in validator.submitted){
+					var label = $('label[for^="'+ key +'"]')
+					var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+					var fieldName = legend.length ? legend.text() : label.text();
+					console.log(fieldName);
+					console.log(label)
+					console.log(legend)
 				}
-			});
+			},
+			submitHandler: function(){
+				console.log("yes")
+				var data = myForm.serializeArray()
+				parseData(data);
+			}
+		});
 	
 	//any other code needed for addItem page goes here
 	
