@@ -383,131 +383,71 @@
 			<div data-role="content">
 				<div class="ui-grid-c">
 					<div class="ui-block-a">
-						<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">
+						<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true" />
 					</div>
 					<div class="ui-block-b">
 						<p data-inline="true" style="color:#F00">*Required!</p>
 					</div>
 					<div class="ui-block-c">
-						<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">
+						<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true" />
 					</div>
 				</div>
 				<!-- Input Fields -->
-				<form action="" method="post" id="gameReviewForm">
-					<div data-role="fieldcontain">
-						<label for="gameCatergory">Game Catergory: </label>
-						<select name="catergory" id="gameCatergory" data-native-menu="false" class="required">
-							<option data-placeholder="true">Catergory</option>
-							<option value="action">Action</option>
-							<option value="adventure">Adventure</option>
-							<option value="fps">First Person Shooter</option>
-							<option value="racing">Racing</option>
-							<option value="rpg">Role Playing</option>
-						</select>
-					</div>
-					<div data-role="fieldcontain" id="gameNameDiv">
-						<label for="gameName">Game Name: </label>
-						<input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" class="required" />
-					</div>
-					<div data-role="fieldcontain" id="gamePublisherDiv">
-						<label for="gamePublisher">Game Publisher: </label>
-						<input type="text" id="gamePublisher" placeholder="Nintendo" class="required" />
-					</div>
-					<div data-role="fieldcontain" id="gameReleaseDiv">
-						<label for="gameRelease">Game Release: </label>
-						<input type="date" id="gameRelease" class="required" /> 
-					</div>
-					<div data-role="fieldcontain" id="gameRatingDiv">
-						<label for="gameRate">Game Rating (0-10):</label>
-						<input type="range" id="gameRate" value="0" min="0" max="10" />
-					</div>
-					<div data-role="fieldcontain" id="consoleListDiv">
-						<fieldset id="gameConsole" data-role="controlgroup" class="required">
-							<legend>Game Consoles:</legend>
-							<input type="checkbox" name="xbox360" id="xbox360">
-							<label for="xbox360">Xbox 360</label>
-							<input type="checkbox" name="ps3" id="ps3">
-							<label for="ps3">Playstation 3</label>
-							<input type="checkbox" name="wii" id="wii">
-							<label for="wii">Wii</label>
-						</fieldset>
-					</div>
-					<div data-role="fieldcontain" id="comm">
-						<label for="comments">Comments:</label>
-						<textarea id="comments" placeholder="This game was amazing A++!"></textarea>
-					</div>
-					<div data-role="fieldcontain" id="submitButtonDiv">
-						<input id="submit" type="submit" value="Add Review" name="submit" />
-					</div>
+				<form action="" method="post" name="gameReviewForm" id="gameReviewForm">
+			  		<fieldset id="addItemField">
+						<div data-role="fieldcontain">
+				  			<ul data-role="listview" data-theme="e" data-inset="true" id="addItemForm">
+				  				<li data-role="list-divider">Game Catergory*</li>
+                                <li id="gameCatergoryList">
+                                    <select id="gameCatergory" name="gameCatergory" class="required" data-native-menu="false">
+                                        <option data-placeholder="true">Catergory</option>
+                                        <option value="action">Action</option>
+                                        <option value="adventure">Adventure</option>
+                                        <option value="fps">First Person Shooter</option>
+                                        <option value="racing">Racing</option>
+                                        <option value="rpg">Role Playing</option>
+                                    </select>
+                                </li>
+                                <li data-role="list-divider">Game Name*</li>
+                                <li id="gameNameLi">
+                                    <input type="text" id="gameName" name="gameName" placeholder="The Legend of Zelda: Skyward Sword" class="required" />
+                                </li>
+                                <li data-role="list-divider">Game Publisher*</li>
+                                <li id="gamePublisherLi">
+                                    <input type="text" name="gamePublisher" id="gamePublisher" placeholder="Nintendo" class="required" />
+                                </li>
+                                <li data-role="list-divider">Game Release Date*</li>
+                                <li id="gameReleaseLi">
+                                    <input type="date" id="gameRelease" name="gameRelease" class="required" /> 
+                                </li>
+                                <li data-role="list-divider">Game Rating(0-10)</li>
+                                <li id="gameRatingLi">
+                                    <div id="gameRating">
+                                    <input type="range" id="gameRate" name="gameRate" value="0" min="0" max="10" />
+                                    </div>
+                                </li>
+                                <li data-role="list-divider">Game Console*</li>
+                                <li id="consoleList">
+                                    <fieldset id="gameConsole" name="gameConsole" data-role="controlgroup" class="required">
+                                        <input type="checkbox" value="xbox360" name="xbox360" id="xbox360" />
+                                        <label for="xbox360">Xbox 360</label>
+                                        <input type="checkbox" value="ps3" name="ps3" id="ps3" />
+                                        <label for="ps3">Playstation 3</label>
+                                        <input type="checkbox" value="wii" name="wii" id="wii" />
+                                        <label for="wii">Wii</label>
+                                    </fieldset>
+                                </li>
+                                <li data-role="list-divider">Comments</li>
+                                <li id="comm">
+                                    <textarea id="comments" name="comments" placeholder="This game was amazing A++!"></textarea>
+                                </li>
+                            </ul>
+				  			<div id="submitButtonDiv">
+                  				<input id="submit" type="submit" value="Add Review" name="submit" />
+                  			</div>
+						</div>
+					</fieldset>
 				</form>
-			<!--<form action="" method="post" id="gameReviewForm">
-			  <fieldset id="addItemField">
-				<nav align="center">
-					<div class="ui-grid-c">
-						<div class="ui-block-a">
-							<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">
-						</div>
-						<div class="ui-block-b">
-							<p data-inline="true" style="color:#F00">*Required!</p>
-						</div>
-						<div class="ui-block-c">
-							<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">
-						</div>
-					</div>
-				</nav>
-				<div data-role="fieldcontain">
-				  <ul data-role="listview" data-theme="e" data-inset="true" id="addItemForm">
-				  	<li data-role="list-divider">Game Catergory*</li>
-					  <li id="gameCatergoryList">
-						<select name="catergory" id="gameCatergory" data-native-menu="false" class="required">
-							<option data-placeholder="true">Catergory</option>
-							<option value="action">Action</option>
-							<option value="adventure">Adventure</option>
-							<option value="fps">First Person Shooter</option>
-							<option value="racing">Racing</option>
-							<option value="rpg">Role Playing</option>
-						</select>
-					  </li>
-					  <li data-role="list-divider">Game Name*</li>
-					  <li id="gameNameLi">
-						  <input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" class="required" />
-					  </li>
-					  <li data-role="list-divider">Game Publisher*</li>
-					  <li id="gamePublisherLi">
-						  <input type="text" id="gamePublisher" placeholder="Nintendo" class="required" />
-					  </li>
-					  <li data-role="list-divider">Game Release Date*</li>
-					  <li id="gameReleaseLi">
-						  <input type="date" id="gameRelease" class="required" /> 
-					  </li>
-					  <li data-role="list-divider">Game Rating(0-10)</li>
-					  <li id="gameRatingLi">
-						  <div id="gameRating">
-							<input type="range" id="gameRate" value="5" min="0" max="10" onMouseOver="rangevalue.value=value" />
-						  </div>
-					  </li>
-					  <li data-role="list-divider">Game Console*</li>
-					  <li id="consoleList">
-					  	<fieldset id="gameConsole" data-role="controlgroup" class="required">
-							<input type="checkbox" name="xbox360" id="xbox360">
-							<label for="xbox360">Xbox 360</label>
-							<input type="checkbox" name="ps3" id="ps3">
-							<label for="ps3">Playstation 3</label>
-							<input type="checkbox" name="wii" id="wii">
-							<label for="wii">Wii</label>
-						</fieldset>
-					  </li>
-					  <li data-role="list-divider">Comments</li>
-					  <li id="comm">
-						  <textarea id="comments" placeholder="This game was amazing A++!"></textarea>
-					  </li>
-				  </ul>
-				  <div id="submitButtonDiv">
-                  	<input id="submit" type="submit" value="Add Review" name="submit" />
-                  </div>
-				</div>
-				</fieldset>
-				</form>-->
 			  <!-- Submit Button -->
 			  <!--<input id="submitButton" type="button" value="Add Review" name="submit" class="button" />-->
 			  </div>

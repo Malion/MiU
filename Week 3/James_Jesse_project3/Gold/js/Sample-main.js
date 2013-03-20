@@ -1,5 +1,3 @@
-$(document).ready(function(){
-
 $('#home').on('pageinit', function(){
 	//code needed for home page goes here
 });	
@@ -7,7 +5,9 @@ var parseData = function(data){
 	console.log(data)
 };	
 $('#addItem').on('pageinit', function(){
-
+		var parseData = function(data){
+			console.log(data)
+		};	
 		var myForm = $('#gameReviewForm');
 		    myForm.validate({
 				invalidHandler: function(myForm, validator){
@@ -45,5 +45,3 @@ var	deleteItem = function (){
 var clearLocal = function(){
 
 };
-
-});
