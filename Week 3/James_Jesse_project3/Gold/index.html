@@ -382,14 +382,14 @@
 			</div>
 			<div data-role="content">
 				<div class="ui-grid-c">
-					<div class="ui-block-a">
-						<input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true" />
+					<div class="ui-block-a ui-btn-text">
+						<a href="#" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">Clear All Data</a>
 					</div>
 					<div class="ui-block-b">
 						<p data-inline="true" style="color:#F00">*Required!</p>
 					</div>
 					<div class="ui-block-c">
-						<input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true" />
+						<a href="#displayReviews" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">Display Reviews</a>
 					</div>
 				</div>
 				<!-- Input Fields -->
@@ -402,11 +402,11 @@
                                 	<label for="gameCatergory" style="display:none">Game Catergory: </label>
                                     <select id="gameCatergory" name="gameCatergory" class="required" data-native-menu="false">
                                         <option data-placeholder="true" value>Catergory</option>
-                                        <option value="action">Action</option>
-                                        <option value="adventure">Adventure</option>
-                                        <option value="fps">First Person Shooter</option>
-                                        <option value="racing">Racing</option>
-                                        <option value="rpg">Role Playing</option>
+                                        <option value="Action">Action</option>
+                                        <option value="Adventure">Adventure</option>
+                                        <option value="First Person Shooter">First Person Shooter</option>
+                                        <option value="Racing">Racing</option>
+                                        <option value="Role-Playing">Role Playing</option>
                                     </select>
                                 </li>
                                 <li data-role="list-divider">Game Name*</li>
@@ -428,7 +428,7 @@
                                 <li id="gameRatingLi">
                                     <div id="gameRating">
                                     <label for="gameRate" style="display:none">Game Rating: </label>
-                                    <input type="range" id="gameRate" name="gameRate" value="0" min="0" max="10" class="required" />
+                                    <input type="range" id="gameRate" name="gameRate" value="0" min="0" max="10" class="ignore"/>
                                     </div>
                                 </li>
                                 <li id="gameConsoleLd" value="gameConsole" data-role="list-divider">Game Console*: </li>
@@ -436,11 +436,11 @@
 								<legend style="display:none" class="gameConsoleLegend">Game Console: </legend>
                                     <fieldset id="gameConsole" name="gameConsole" value="Game Console: " data-role="controlgroup">
 										
-                                        <input type="checkbox" value="xbox360" name="xbox360" id="xbox360" class="required" />
+                                        <input type="checkbox" value="Xbox 360" name="xbox360" id="xbox360" class="required" />
                                         <label for="xbox360">Xbox 360</label>
-                                        <input type="checkbox" value="ps3" name="ps3" id="ps3" />
+                                        <input type="checkbox" value="Playstation 3" name="ps3" id="ps3" />
                                         <label for="ps3">Playstation 3</label>
-                                        <input type="checkbox" value="wii" name="wii" id="wii" />
+                                        <input type="checkbox" value="Wii" name="wii" id="wii" />
                                         <label for="wii">Wii</label>
                                     </fieldset>
                                 </li>
@@ -458,8 +458,6 @@
                     <a href="#addItemErrors" id="addItemErrorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
 				</form>
 				<a href="#displayDataPage" id="displayDataPageLink" style="display:none">Data Page</a>
-			  <!-- Submit Button -->
-			  <!--<input id="submitButton" type="button" value="Add Review" name="submit" class="button" />-->
 			  </div>
 			  <div data-role="footer" data-theme="e" data-position="fixed" data-id="nav">
 				<div data-role="navbar">
@@ -471,15 +469,25 @@
 					</ul>
 				</div>
 			</div>
-            <div data-role="page" style="background:#9CF" data-theme="a" id="displayDataPage">
+            <div data-role="page" style="background:#9CF" data-add-back-btn="true" data-theme="a" id="displayDataPage">
             	<div data-role="header" data-theme="b">
                 	<h3>Game List</h3>
                 </div>
                 <div data-role="content">
-                
+                	<ul data-role="listview" data-inset="true" data-filter="true">
+                        <div data-role="fieldcontain">
+                            <ul data-role="collapsible-set">
+                            </ul>
+                        </div>
+                    </ul>
                 </div>
                 <div data-role="footer" data-theme="e">
-                
+                	<ul>
+                        <li><a href="#home" data-icon="home">Home</a></li>
+                        <li><a href="#favorites" data-icon="star">Favorites</a></li>
+                        <li><a href="#news" data-icon="grid">News Stream</a></li>
+                        <li><a href="#about" data-icon="info">Information</a></li>
+                    </ul>
                 </div>
             </div>
 		</div>
@@ -490,10 +498,28 @@
             </div>
             <div data-role="content">
             	<ul>
-                	<li>Test</li>
                 </ul>
             </div>
         </div>
+        <div data-role="page" id="displayReviews">
+        	<div data-role="header" data-theme="b" data-position="fixed">
+            	<h3>Saved Reviews</h3>
+            </div>
+			<div data-role="content" data-theme="e">
+            	<div data-role="collapsible-set" data-inset="true" id="dynamicReviews" data-filter="true">
+                </div>
+            </div>
+          	<div data-role="footer" data-theme="e" data-position="fixed" data-id="nav">
+            	<div data-role="navbar">
+                	<ul>
+                    	<li><a href="#home" data-icon="home">Home</a></li>
+                        <li><a href="#favorites" data-icon="star">Favorites</a></li>
+                        <li><a href="#news" data-icon="grid">News Stream</a></li>
+                        <li><a href="#about" data-icon="info">Information</a></li>
+                    </ul>
+            	</div>
+            </div>        
+		</div>
         <!-- For use when I have internet at home -->
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
