@@ -428,13 +428,14 @@
                                 <li id="gameRatingLi">
                                     <div id="gameRating">
                                     <label for="gameRate" style="display:none">Game Rating: </label>
-                                    <input type="range" id="gameRate" name="gameRate" value="0" min="0" max="10" />
+                                    <input type="range" id="gameRate" name="gameRate" value="0" min="0" max="10" class="required" />
                                     </div>
                                 </li>
-                                <li data-role="list-divider">Game Console*</li>
+                                <li id="gameConsoleLd" value="gameConsole" data-role="list-divider">Game Console*: </li>
                                 <li id="consoleList">
-                                	<legend style="display:none">Game Console: </legend>
-                                    <fieldset id="gameConsole" name="gameConsole" data-role="controlgroup">
+								<legend style="display:none" class="gameConsoleLegend">Game Console: </legend>
+                                    <fieldset id="gameConsole" name="gameConsole" value="Game Console: " data-role="controlgroup">
+										
                                         <input type="checkbox" value="xbox360" name="xbox360" id="xbox360" class="required" />
                                         <label for="xbox360">Xbox 360</label>
                                         <input type="checkbox" value="ps3" name="ps3" id="ps3" />
@@ -456,6 +457,7 @@
 					</fieldset>
                     <a href="#addItemErrors" id="addItemErrorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
 				</form>
+				<a href="#displayDataPage" id="displayDataPageLink" style="display:none">Data Page</a>
 			  <!-- Submit Button -->
 			  <!--<input id="submitButton" type="button" value="Add Review" name="submit" class="button" />-->
 			  </div>

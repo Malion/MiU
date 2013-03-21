@@ -13,3 +13,7 @@ label.error {
 #addItemErrorsLink {
 	display: none;
 }
+
+.gameConsoleLegend {
+	float:right;
+}

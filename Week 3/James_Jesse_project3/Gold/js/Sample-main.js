@@ -11,19 +11,21 @@ $('#addItem').on('pageinit', function(){
 		myForm.validate({
 			invalidHandler: function(form, validator){
 				errorLink.click();
+				var html = '';
 				for(var key in validator.submitted){
 					var label = $('label[for^="'+ key +'"]')
-					var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-					var fieldName = legend.length ? legend.text() : label.text();
-					console.log(fieldName);
-					console.log(label)
-					console.log(legend)
-				}
+					var legend = $('#consoleList').children('legend');
+					var fieldName = key=="xbox360" ? legend.text() : label.text();
+					html += '<li>'+ fieldName +'</li>'
+				};
+				$('#addItemErrors ul').html(html);
 			},
 			submitHandler: function(){
-				console.log("yes")
 				var data = myForm.serializeArray()
-				parseData(data);
+				var newObj = JSON.stringify(data)
+				var newId = Math.floor(Math.random() * 1000000001);
+				localStorage.setItem(newId, newObj);
+				location.reload('#addItem')
 			}
 		});
 	
