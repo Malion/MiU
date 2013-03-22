@@ -425,9 +425,9 @@
                 <form action="#" method="post" id="gameReviewForm" class="gameReviewForm" />
                   <fieldset id="addItemField">
                     <legend style="display:none">Game Review</legend>
-                                <input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true">
-                                <input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true">
-                        <div data-role="collapsible-set" data-inset="true" data-inline="true">
+                                <input type="button" value="Clear Data" title="clearData" id="clearData" class="button" data-inline="true" data-theme="a">
+                                <input type="button" value="Display Data" title="displayData" id="displayData" class="button" data-inline="true" data-theme="a">
+                        <div data-role="collapsible-set" data-inset="true" data-inline="true" data-theme="a">
                             <ul id="addItemForm">
                                 <li>
                                     <div data-role="collapsible">
@@ -445,51 +445,90 @@
                                         <ul>
                                             <li>
                                                 <label style="display:none" for="gameName">Game Name: </label>
-                                                <input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" />
+                                                <input type="text" id="gameName" placeholder="The Legend of Zelda: Skyward Sword" data-theme="a" />
                                             </li>
                                         </ul>
-                                    </div>
+                                	</div>
+                                </li>
+                                <li>
+									<div data-role="collapsible">
+									<h3>Game Publisher</h3>
+										<ul>
+											<li>
+                                    			<label style="display:none" for="gamePublisher">Game Publisher: </label>
+                                      			<input type="text" id="gamePublisher" placeholder="Nintendo" data-theme="a" />
+											</li>
+										</ul>
+									</div>
+                                </li>
+                                <li>
+									<div data-role="collapsible">
+									<h3>Game Release</h3>
+										<ul>
+											<li>
+                                      			<label style="display:none" for="gameRelease">Game Release Date: </label>
+                                      			<input type="date" id="gameRelease" data-theme="a" /> 
+											</li>
+										</ul>
+									</div>
+                                </li>
+                                <li id="rl">
+									<div data-role="collapsible">
+										<h3>Game Rating</h3>
+											<ul>
+												<li>
+                                     				<label style="display:none" id="ratingLabel" for="gameRate">Game Rating</label>
+                                        			<input type="range" id="gameRate" value="5" min="0" max="10" data-theme="a" />
+												</li>
+											</ul>
+									  </div>
                                   </li>
-                                  <li>
-                                      <label for="gamePublisher">Game Publisher: </label>
-                                      <input type="text" id="gamePublisher" placeholder="Nintendo" />
-                                  </li>
-                                  <li>
-                                      <label for="gameRelease">Game Release Date: </label>
-                                      <input type="date" id="gameRelease" /> 
-                                  </li>
-                                  <li id="rl">
-                                      <label id="ratingLabel" for="gameRate"></label>
-                                      <div id="gameRating">
-                                        <input class="bar" type="range" id="gameRate" value="5" min="0" max="10" onMouseOver="rangevalue.value=value" onchange="rangevalue.value=value"/>
-                                        <span class="highlight"></span>
-                                        <output id="rangevalue"></output>
-                                      </div>
-                                  </li>
-                                  <li id="gameConsole">Game Console:
-                                      <ul id="consoleList">
-                                          <li>
-                                              <input type="checkbox" value="Xbox 360" id="xbox360" name="console" />
-                                              <label for="xbox360" class="xbox360"> Xbox 360</label>
-                                          </li>
-                                          <li>
-                                              <input type="checkbox" value="Playstation 3" id="ps3" name="console" />
-                                              <label for="ps3" class="ps3"> Playstation 3</label>
-                                          </li>
-                                          <li>
-                                              <input type="checkbox" value="Wii" id="wii" name="console" />
-                                              <label for="wii" class="wii"> Wii</label>
-                                          </li>
-                                      </ul>
+                                  <li id="gameConsole">
+								  		<div data-role="collapsible">
+											<h3>Game Console</h3>
+                                      			<ul id="consoleList">
+                                          			<li>
+                                              			<input type="checkbox" value="Xbox 360" id="xbox360" name="console" data-theme="a" />
+                                              			<label for="xbox360" class="xbox360"> Xbox 360</label>
+                                         			</li>
+												    <li>
+													    <input type="checkbox" value="Playstation 3" id="ps3" name="console" data-theme="a" />
+													    <label for="ps3" class="ps3"> Playstation 3</label>
+												    </li>
+												    <li>
+													    <input type="checkbox" value="Wii" id="wii" name="console" data-theme="a" />
+													    <label for="wii" class="wii"> Wii</label>
+												    </li>
+											    </ul>
+										</div>
                                   </li>
                                   <li id="comm">
-                                      <label for="comments">Comments: </label><textarea id="comments" placeholder="This game was amazing A++!"></textarea>
+								  	  <div data-role="collapsible">
+									  	<h3>Comments</h3>
+											<ul>
+												<li>
+                                      				<label style="display:none" for="comments">Comments: </label>
+									  				<textarea id="comments" placeholder="This game was amazing A++!" data-theme="a"></textarea>
+												</li>
+											</ul>
+									  </div>
                                   </li>
                               </ul>
-                        </fieldset>
+						</div>
+                      </fieldset>
                       <!-- Submit Button -->
-                      <input id="submitButton" type="button" value="Add Review" name="submit" class="button" />
+                      <input id="submitButton" type="button" value="Add Review" name="submit" class="button" data-theme="a" />
                   </div>
+				  <div data-role="footer" data-theme="a" data-position="fixed" data-id="nav">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" data-icon="home">Home</a></li>
+							<li><a href="#favorites" data-icon="star">Favorites</a></li>
+							<li><a href="#news" data-icon="grid">News Stream</a></li>
+							<li><a href="#about" data-icon="info">Information</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
         </div>
         <!-- For use when I have internet at home -->
